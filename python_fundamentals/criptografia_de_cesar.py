@@ -45,7 +45,11 @@ def main():
 
 		comandos = {'criptografar':criptografar,'decriptografar':decriptografar}
 
-		comandos[command](message,qtd)
+		try:
+			comandos[command](message,qtd)
+		except KeyError as e:
+			print('Chave errada: {}'.format(e))
+
 
 if __name__ == '__main__':
 	main()
